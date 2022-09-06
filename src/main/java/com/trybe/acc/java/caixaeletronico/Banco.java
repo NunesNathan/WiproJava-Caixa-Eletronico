@@ -1,8 +1,6 @@
 package com.trybe.acc.java.caixaeletronico;
 
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Banco {
@@ -33,8 +31,9 @@ public class Banco {
 
   /** pessoaClienteLogin method.*/
   public PessoaCliente pessoaClienteLogin(String cpf, String senha) {
-    PessoaCliente pessoa = (PessoaCliente) pessoasClientes.stream()
-            .filter(cliente -> Objects.equals(cliente.getCpf(), cpf));
+    PessoaCliente pessoa = pessoasClientes.stream().parallel()
+            .filter(cliente -> cliente.getCpf() == cpf).findAny()
+            .orElse(null);
 
     if (pessoa != null & pessoa.validarSenha(senha)) {
       return pessoa;

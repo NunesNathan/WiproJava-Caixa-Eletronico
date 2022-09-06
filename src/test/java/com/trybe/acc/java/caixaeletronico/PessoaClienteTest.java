@@ -1,8 +1,9 @@
 package com.trybe.acc.java.caixaeletronico;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Teste dos métodos da classe PessoaCliente")
 class PessoaClienteTest {
@@ -10,30 +11,38 @@ class PessoaClienteTest {
   @Test
   @DisplayName("12 - Testa o construtor da classe Pessoa Cliente.")
   void construtorTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
 
+    assertEquals(pessoa.getCpf(), "333.444.111-25");
+    assertEquals(pessoa.getPessoaCliente(), "Adalto Alto");
   }
 
   @Test
   @DisplayName("13 - Testa o método adicionar conta e o método retornar número de contas.")
   void adicionarContaTestRetornaNumeroDeContasTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
+    pessoa.adicionarConta(new Conta("Poupança", pessoa, new Banco()));
 
+    assertTrue(pessoa.retornaNumeroDeContas() == 1);
   }
 
   @Test
   @DisplayName("14 - Testa o método retornar saldo de uma conta específica da pessoa cliente.")
   void retornarSaldoContaEspecificaTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
+    pessoa.adicionarConta(new Conta("Poupança", pessoa, new Banco()));
 
+    assertTrue(pessoa.retornarSaldoContaEspecifica(0) == 0.0);
   }
 
 
   @Test
   @DisplayName("15 - Testa o método retornar id de uma conta específica da pessoa cliente.")
   void retornarIdContaEspecificaTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
+    pessoa.adicionarConta(new Conta("Poupança", pessoa, new Banco()));
 
+    assertTrue(pessoa.retornarIdContaEspecifica(0).length() == 10);
   }
 
   @Test
@@ -46,15 +55,20 @@ class PessoaClienteTest {
   @Test
   @DisplayName("17 - Testa o método adiciona transacao de uma conta específica da pessoa cliente.")
   void adicionarTransacaoContaEspecificaTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
+    pessoa.adicionarConta(new Conta("Poupança", pessoa, new Banco()));
+    pessoa.adicionarTransacaoContaEspecifica(0, 12.00, "Tranferencia recebida");
 
+    assertEquals(pessoa.retornarSaldoContaEspecifica(0), 12);
   }
 
   @Test
   @DisplayName("18 - Testa o método validar senha.")
   void validarSenhaTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
 
+    assertTrue(pessoa.validarSenha("6789"));
+    assertFalse(pessoa.validarSenha("6788"));
   }
 
   @Test
@@ -68,8 +82,9 @@ class PessoaClienteTest {
   @Test
   @DisplayName("20 - Testa o método Getter do atributo cpf está retornando.")
   void getCpfTest() {
-    fail("Não implementado");
+    PessoaCliente pessoa = new PessoaCliente("Adalto Alto", "333.444.111-25", "6789");
 
+    assertEquals(pessoa.getCpf(), "333.444.111-25");
   }
 
 }

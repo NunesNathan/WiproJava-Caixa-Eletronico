@@ -8,6 +8,7 @@ public class Conta {
   private PessoaCliente pessoaCliente;
   private ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
 
+  /** Conta Contructor.*/
   public Conta(String tipoConta, PessoaCliente pessoaCliente, Banco banco) {
     this.tipoConta = tipoConta;
     this.pessoaCliente = pessoaCliente;
@@ -18,6 +19,7 @@ public class Conta {
     transacoes.add(new Transacao(quantia, descricao));
   }
 
+  /** retornarSaldo method.*/
   public double retornarSaldo() {
     double total = 0;
     for (Transacao transacao : transacoes) {
@@ -47,9 +49,11 @@ public class Conta {
     return this.idConta + " : " + "R$" + this.retornarSaldo() + " : " + this.tipoConta;
   }
 
+  /** retornarExtrato method.*/
   public void retornarExtrato() {
     for (int i = 0; i <= transacoes.size(); i++) {
-      System.out.println(String.valueOf(i + 1) + ") " + transacoes.get(i).retornarResumoTransacao());
+      System.out.println(String.valueOf(i + 1) + ") " + transacoes.get(i)
+              .retornarResumoTransacao());
     }
   }
 }

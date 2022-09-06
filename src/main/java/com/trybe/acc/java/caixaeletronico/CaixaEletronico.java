@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class CaixaEletronico {
 
+  /** Main method.*/
   public static void main(String[] args) {
 
     Scanner sc = new Scanner(System.in);
@@ -15,17 +16,20 @@ public class CaixaEletronico {
      */
 
     // pessoa cliente 1
-    PessoaCliente pessoaCliente1 = banco.adicionarPessoaCliente("Alexiania Pereira", "842.074.410-77", "1234");
+    PessoaCliente pessoaCliente1 = banco.adicionarPessoaCliente("Alexiania Pereira",
+            "842.074.410-77", "1234");
     banco.adicionarConta(new Conta("Poupança", pessoaCliente1, banco));
     banco.adicionarConta(new Conta("Corrente", pessoaCliente1, banco));
 
     // pessoa cliente 2
-    PessoaCliente pessoaCliente2 = banco.adicionarPessoaCliente("Abadiania Silva", "848.725.510-87", "1234");
+    PessoaCliente pessoaCliente2 = banco.adicionarPessoaCliente("Abadiania Silva",
+            "848.725.510-87", "1234");
     banco.adicionarConta(new Conta("Poupança", pessoaCliente2, banco));
     banco.adicionarConta(new Conta("Corrente", pessoaCliente2, banco));
 
     // pessoa cliente 3
-    PessoaCliente pessoaCliente3 = banco.adicionarPessoaCliente("Camaragibe Oliveira", "433.892.200-11", "1234");
+    PessoaCliente pessoaCliente3 = banco.adicionarPessoaCliente("Camaragibe Oliveira",
+            "433.892.200-11", "1234");
     banco.adicionarConta(new Conta("Poupança", pessoaCliente3, banco));
     banco.adicionarConta(new Conta("Corrente", pessoaCliente3, banco));
     // laco infinito
@@ -75,11 +79,12 @@ public class CaixaEletronico {
             // pega o indice da conta para imprimir o extrato
             do {
               System.out.printf("Entre com o número (1-%d) para a conta\nque "
-                      + "o extrato será impresso: ", pessoaClienteAutenticada.retornaNumeroDeContas());
+                      + "o extrato será impresso: ", pessoaClienteAutenticada
+                      .retornaNumeroDeContas());
               conta = sc.nextInt() - 1;
               if (conta < 0 || conta >= pessoaClienteAutenticada.retornaNumeroDeContas()) {
                 System.out.println("Número inválido, tente novamente.");
-              }else {
+              } else {
                 break;
               }
             } while (true);
@@ -112,7 +117,8 @@ public class CaixaEletronico {
 
             // pega a quantia para o saque
             do {
-              System.out.printf("Entre com a quantia a ser sacada (máximo R$%.02f): R$ ", saldoConta);
+              System.out.printf("Entre com a quantia a ser sacada (máximo R$%.02f): R$ ",
+                      saldoConta);
               quantia = sc.nextDouble();
               if (quantia < 0) {
                 System.out.println("quantia deve ser maior que zero.");
@@ -137,7 +143,8 @@ public class CaixaEletronico {
                       + "depósito: ", pessoaClienteAutenticada.retornaNumeroDeContas());
               paraConta = sc.nextInt() - 1;
 
-              if (paraConta < 0 || paraConta >= pessoaClienteAutenticada.retornaNumeroDeContas()) {
+              if (paraConta < 0 || paraConta >= pessoaClienteAutenticada
+                      .retornaNumeroDeContas()) {
                 System.out.println("Índice de conta inválido, tente novamente.");
 
               } else {
@@ -171,7 +178,8 @@ public class CaixaEletronico {
             // pega o indice de uma conta retirar o valor da transferencia
             do {
               System.out.printf("Entre o número (1-%d) para "
-                      + "retirar o valor para transferência: ", pessoaClienteAutenticada.retornaNumeroDeContas());
+                      + "retirar o valor para transferência: ", pessoaClienteAutenticada
+                      .retornaNumeroDeContas());
               daConta = sc.nextInt() - 1;
               if (daConta < 0 || daConta >= pessoaClienteAutenticada.retornaNumeroDeContas()) {
                 System.out.println("Índice de conta inválido, tente novamente.");
@@ -186,9 +194,11 @@ public class CaixaEletronico {
             // pega o indice da conta que vai receber o valor da transferencia
             do {
               System.out.printf("Entre o número (1-%d) para "
-                      + "selecionar a conta que receberá a transferência: ", pessoaClienteAutenticada.retornaNumeroDeContas());
+                      + "selecionar a conta que receberá a transferência: ",
+                      pessoaClienteAutenticada.retornaNumeroDeContas());
               paraConta = sc.nextInt() - 1;
-              if (paraConta < 0 || paraConta >= pessoaClienteAutenticada.retornaNumeroDeContas()) {
+              if (paraConta < 0 || paraConta >= pessoaClienteAutenticada
+                      .retornaNumeroDeContas()) {
                 System.out.println("Índice de conta inválido, tente novamente.");
               } else {
                 break;
@@ -200,7 +210,8 @@ public class CaixaEletronico {
               /* pega a quantia para ser transferida de uma conta da pessoa cliente para outra
                * levando em consideracao o saldo da conta que cedera o dinheiro
                */
-              System.out.printf("Entre com a quantia para ser transferida (máximo R$%.02f): R$ ", saldoConta);
+              System.out.printf("Entre com a quantia para ser transferida (máximo R$%.02f): R$ ",
+                      saldoConta);
               quantia = sc.nextDouble();
 
               if (quantia < 0) {
@@ -224,9 +235,9 @@ public class CaixaEletronico {
 
         } while (true);
 
-      }// fim else
+      } // fim else
 
 
-    }// fim loop infinito
+    } // fim loop infinito
   }
 }

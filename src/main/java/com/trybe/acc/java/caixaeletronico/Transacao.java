@@ -9,6 +9,7 @@ public class Transacao {
   private String descricao;
   private Conta conta;
 
+  /** Transacao method.*/
   public Transacao(double quantia, String descricao) {
     this.quantia = quantia;
     this.descricao = descricao;
